@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+	<title>Calculator web service</title>
+</head>
+<body>
+	<h2 class="text-primary"> <center>Welcome to the calculator web service </center> </h2>
+			<form style="padding-top: 100px;" action="" method = "GET" id="myform" onsubmit="UrlConstruct()">
+				<div style="margin: 0 auto;width:10% ">
+				1st Number:
+				<input type="number" id="first" name="first">
+				<br><br>
+				2nd Number:
+				<input type="number" id="second" name="second">
+				<br><br>
+				Operation:
+				
+				<select id="operation">
+				  <option value="addition">Addition</option>
+	 		 	  <option value="subtraction">Subtraction</option>
+	 			  <option value="multiplication">Multiplication</option>
+	  			  <option value="division">Division</option>
+				</select>
+				<br><br>
+
+				<button type="submit" class="btn btn-primary" value="Submit" id="mybtn"> Submit </button>
+				</div>
+			</form>	
+	<script type="text/javascript">
+	
+		function UrlConstruct(){
+			var e = document.getElementById("operation");
+			var operation = e.options[e.selectedIndex].value;
+			let first = document.getElementById('first').value;
+			let second = document.getElementById('second').value;
+			$("#myform").attr('action', 'calculator/'+operation);
+
+		}
+	</script>
+</body>
+</html>
